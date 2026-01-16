@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hana Digital | Inteligência & Fluidez</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['"Inter"', '"Helvetica Neue"', 'Helvetica', 'Arial', 'sans-serif'],
+            },
+            colors: {
+              brand: {
+                orange: '#ff7a00',
+                copper: '#c67e2c',
+                gold: '#ffae42',
+                obsidian: '#000000',
+                beige: '#fdf8f3',
+              }
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+      body { 
+        background-color: #000000; 
+        color: #fdf8f3; 
+        overflow-x: hidden;
+        font-family: 'Inter', sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .liquid-bg {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        z-index: -1; background: #000000;
+        overflow: hidden;
+      }
+
+      .flow-blob {
+        position: absolute;
+        filter: blur(100px);
+        opacity: 0.45;
+        border-radius: 50%;
+        animation: flow 20s infinite alternate ease-in-out;
+      }
+
+      .blob-orange { width: 80vw; height: 80vw; background: radial-gradient(circle, #ff7a00 0%, #c67e2c 100%); top: -15%; right: -5%; animation-duration: 25s; }
+      .blob-gold { width: 60vw; height: 60vw; background: radial-gradient(circle, #ffae42 0%, #ff7a00 100%); bottom: -5%; left: -5%; animation-delay: -7s; }
+
+      @keyframes flow {
+        0% { transform: translate(-5%, -5%) rotate(0deg); }
+        100% { transform: translate(5%, 5%) rotate(90deg); }
+      }
+
+      .noise {
+        position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('https://grainy-gradients.vercel.app/noise.svg');
+        opacity: 0.15; pointer-events: none; z-index: 100;
+        mix-blend-mode: overlay;
+      }
+
+      .glass {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .btn-luxury {
+        background: #ff7a00;
+        color: #000;
+        transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+        font-weight: 700;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+      }
+
+      .btn-luxury:hover {
+        background: #ffffff;
+        transform: translateY(-2px);
+        box-shadow: 0 15px 30px rgba(255, 122, 0, 0.3);
+      }
+
+      h1, h2, h3 { 
+        letter-spacing: -0.03em; 
+        line-height: 1.1;
+      }
+
+      ::selection { background: #ff7a00; color: #000; }
+
+      @keyframes starRotate {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+      }
+      .star-animate {
+        animation: starRotate 25s linear infinite;
+      }
+    </style>
+</head>
+<body>
+    <div class="noise"></div>
+    <div class="liquid-bg">
+        <div class="flow-blob blob-orange"></div>
+        <div class="flow-blob blob-gold"></div>
+    </div>
+    <div id="root"></div>
+    <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom": "https://esm.sh/react-dom@^19.2.3",
+    "react-dom/client": "https://esm.sh/react-dom@^19.2.3/client",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.26.2",
+    "@google/genai": "https://esm.sh/@google/genai@^1.37.0",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/"
+  }
+}
+</script>
+    <script type="module" src="index.tsx"></script>
+</body>
+</html>
